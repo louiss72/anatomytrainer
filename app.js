@@ -256,10 +256,21 @@ function renderList() {
     button.addEventListener("click", () => {
       state.currentIndex = index;
       renderAll();
+      focusStudyOnMobile();
     });
     fragment.append(button);
   });
   els.termList.replaceChildren(fragment);
+}
+
+function focusStudyOnMobile() {
+  if (state.view !== "wordBank" || !window.matchMedia("(max-width: 980px)").matches) {
+    return;
+  }
+  const root = document.scrollingElement || document.documentElement;
+  root.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
 }
 
 function renderStudy() {

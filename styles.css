@@ -661,6 +661,32 @@ button:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  #wordBankView .workspace {
+    order: 1;
+  }
+
+  #wordBankView .sidebar {
+    order: 2;
+  }
+
+  #wordBankView .study-layout {
+    gap: 14px;
+  }
+
+  #wordBankView .detail-panel {
+    order: -1;
+    justify-content: flex-start;
+  }
+
+  #wordBankView .image-frame {
+    height: min(62vh, 560px);
+    min-height: 340px;
+  }
+
+  #wordBankView .image-frame img {
+    max-height: none;
+  }
+
   .sidebar {
     border-right: 0;
     border-bottom: 1px solid var(--line);
@@ -697,15 +723,46 @@ button:focus-visible {
     flex-direction: column;
   }
 
+  #wordBankView .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
   .nav-buttons,
   .actions {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  #wordBankView .nav-buttons,
+  #wordBankView .actions {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  #wordBankView .nav-buttons::-webkit-scrollbar,
+  #wordBankView .actions::-webkit-scrollbar {
+    display: none;
+  }
+
   .ghost-button,
   .icon-button {
     width: 100%;
+  }
+
+  #wordBankView .ghost-button,
+  #wordBankView .icon-button {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 38px;
+    padding: 0 12px;
+    white-space: nowrap;
   }
 
   #termTitle,
@@ -714,8 +771,35 @@ button:focus-visible {
     font-size: 34px;
   }
 
+  #wordBankView #termTitle {
+    font-size: clamp(26px, 7.5vw, 34px);
+  }
+
+  #wordBankView .study-layout {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  #wordBankView .detail-panel {
+    gap: 10px;
+  }
+
+  #wordBankView .term-meta span {
+    min-height: 26px;
+    font-size: 11px;
+  }
+
   .image-frame {
     min-height: 360px;
+  }
+
+  #wordBankView .image-frame {
+    height: min(56vh, 500px);
+    min-height: 300px;
+  }
+
+  #wordBankView .sidebar {
+    padding: 12px 16px 16px;
   }
 
   .mistake-item {
