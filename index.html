@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anatomy Trainer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="homeView" class="home-view active">
+        <div class="home-inner">
+          <div class="brand-row large">
+            <div class="brand-mark">AT</div>
+            <div>
+              <h1>Anatomy Trainer</h1>
+              <p id="coverageText">Loading terms</p>
+            </div>
+          </div>
+
+          <div class="home-grid" aria-label="Main navigation">
+            <button class="home-card" data-view="wordBank" type="button">
+              <span>01</span>
+              <strong>Word Bank</strong>
+              <small>Browse every structure with its local anatomy image.</small>
+            </button>
+            <button class="home-card" data-view="test" type="button">
+              <span>02</span>
+              <strong>Test</strong>
+              <small>Answer image-based questions and update proficiency.</small>
+            </button>
+            <button class="home-card" data-view="mistakes" type="button">
+              <span>03</span>
+              <strong>Mistake Log</strong>
+              <small>Review missed terms and their current proficiency.</small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="wordBankView" class="app-view split-view">
+        <aside class="sidebar">
+          <div class="brand-row">
+            <div class="brand-mark">AT</div>
+            <div>
+              <h1>Word Bank</h1>
+              <p id="bankCountText">Loading terms</p>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <label class="field">
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="orbicularis, femoral..." />
+            </label>
+            <label class="field">
+              <span>Region</span>
+              <select id="regionSelect"></select>
+            </label>
+            <label class="switch">
+              <input id="imageOnlyToggle" type="checkbox" />
+              <span>With images</span>
+            </label>
+          </div>
+
+          <div class="stats-grid" aria-label="Word bank coverage">
+            <div>
+              <strong id="totalCount">0</strong>
+              <span>Shown</span>
+            </div>
+            <div>
+              <strong id="regionCount">0</strong>
+              <span>Regions</span>
+            </div>
+            <div>
+              <strong id="imageCount">0</strong>
+              <span>Images</span>
+            </div>
+          </div>
+
+          <div id="termList" class="term-list" aria-label="Anatomy terms"></div>
+        </aside>
+
+        <section class="workspace">
+          <header class="topbar">
+            <div class="nav-buttons">
+              <button class="ghost-button" data-view="home" type="button">Home</button>
+              <button class="ghost-button active" data-view="wordBank" type="button">Word Bank</button>
+              <button class="ghost-button" data-view="test" type="button">Test</button>
+              <button class="ghost-button" data-view="mistakes" type="button">Mistake Log</button>
+            </div>
+            <div class="actions">
+              <button id="shuffleButton" class="icon-button" type="button">Shuffle</button>
+              <button id="prevButton" class="icon-button" type="button">Prev</button>
+              <button id="nextButton" class="icon-button primary" type="button">Next</button>
+            </div>
+          </header>
+
+          <div id="studyView" class="study-layout">
+            <section class="visual-panel">
+              <div id="imageFrame" class="image-frame"></div>
+            </section>
+            <section class="detail-panel">
+              <div class="term-meta">
+                <span id="regionBadge"></span>
+                <span id="categoryBadge"></span>
+              </div>
+              <h2 id="termTitle">Loading</h2>
+            </section>
+          </div>
+        </section>
+      </section>
+
+      <section id="testView" class="app-view single-view">
+        <header class="topbar">
+          <div class="nav-buttons">
+            <button class="ghost-button" data-view="home" type="button">Home</button>
+            <button class="ghost-button" data-view="wordBank" type="button">Word Bank</button>
+            <button class="ghost-button active" data-view="test" type="button">Test</button>
+            <button class="ghost-button" data-view="mistakes" type="button">Mistake Log</button>
+          </div>
+          <div class="score-pill" id="quizScore">0 / 0</div>
+        </header>
+
+        <section class="quiz-layout">
+          <div id="quizImage" class="image-frame"></div>
+          <div class="quiz-side">
+            <div class="term-meta">
+              <span id="quizRegionBadge"></span>
+              <span id="quizCategoryBadge"></span>
+            </div>
+            <h2>Pick the structure</h2>
+            <div id="options" class="options"></div>
+            <div id="testFeedback" class="test-feedback" hidden></div>
+            <button id="nextQuizButton" class="wide-button" type="button">Next question</button>
+          </div>
+        </section>
+      </section>
+
+      <section id="mistakeView" class="app-view single-view">
+        <header class="topbar">
+          <div class="nav-buttons">
+            <button class="ghost-button" data-view="home" type="button">Home</button>
+            <button class="ghost-button" data-view="wordBank" type="button">Word Bank</button>
+            <button class="ghost-button" data-view="test" type="button">Test</button>
+            <button class="ghost-button active" data-view="mistakes" type="button">Mistake Log</button>
+          </div>
+          <button id="clearMistakesButton" class="icon-button" type="button">Clear Log</button>
+        </header>
+
+        <section class="mistake-layout">
+          <div class="section-heading">
+            <h2>Mistake Log</h2>
+            <p id="mistakeSummary">No mistakes yet.</p>
+          </div>
+          <div id="mistakeList" class="mistake-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

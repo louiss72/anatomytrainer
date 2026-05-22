@@ -1,0 +1,14 @@
+assets/images/*
+!assets/images/.gitkeep
+
+kenhub_orbicularis_oculi.jpg
+app_screenshot.png
+app_home_screenshot.png
+
+data/pdf_text.txt
+data/parsed_terms.json
+data/import_report.json
+
+__pycache__/
+scripts/__pycache__/
+.DS_Store
