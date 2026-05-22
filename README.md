@@ -6,9 +6,10 @@ A personal anatomy word-bank and quiz app for studying structures by image.
 
 - Static website files: `index.html`, `styles.css`, and `app.js`
 - The anatomy term bank at `data/wordbank.json`
+- Authorized anatomy image assets in `assets/images/`
 - A local importer at `scripts/import_wordbank.py`
 
-Downloaded atlas images are intentionally not committed. They stay in `assets/images/` for local personal use only.
+The image assets are included for authorized personal study use.
 
 ## Run locally
 
